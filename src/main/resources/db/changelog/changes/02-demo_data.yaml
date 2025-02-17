@@ -1,0 +1,162 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: sawicki (generated)
+      changes:
+      - insert:
+          tableName: app_user
+          columns:
+            - column:
+                name: id
+                value: "1"
+            - column:
+                name: username
+                value: "admin"
+            - column:
+                name: password
+                value: "$2a$10$y9g4fpD0To2LqCglSfsUV.FRAH.eqzFWCVvY/bywM0JX6AfjkJZXa"
+            - column:
+                name: role
+                value: "ROLE_ADMIN"
+      - insert:
+          tableName: app_user
+          columns:
+            - column:
+                name: id
+                value: "2"
+            - column:
+                name: username
+                value: "user"
+            - column:
+                name: password
+                value: "$2a$10$iGIAUOglGkxlMvTWK1vtjeyiCQP26WVbNdEIqpX5NbivvsYGNAp7K"
+            - column:
+                name: role
+                value: "ROLE_VIEWER"
+      - insert:
+          tableName: sensor_type
+          columns:
+            - column:
+                name: id
+                value: "pressure"
+            - column:
+                name: type_name
+                value: "Pressure"
+      - insert:
+          tableName: sensor_type
+          columns:
+            - column:
+                name: id
+                value: "voltage"
+            - column:
+                name: type_name
+                value: "Voltage"
+      - insert:
+          tableName: sensor_type
+          columns:
+            - column:
+                name: id
+                value: "temperature"
+            - column:
+                name: type_name
+                value: "Temperature"
+      - insert:
+          tableName: sensor_type
+          columns:
+            - column:
+                name: id
+                value: "humidity"
+            - column:
+                name: type_name
+                value: "Humidity"
+
+      - insert:
+          tableName: unit_of_measure
+          columns:
+            - column:
+                name: id
+                value: "bar"
+            - column:
+                name: unit_name
+                value: "Bar"
+      - insert:
+          tableName: unit_of_measure
+          columns:
+            - column:
+                name: id
+                value: "voltage"
+            - column:
+                name: unit_name
+                value: "Voltage"
+      - insert:
+          tableName: unit_of_measure
+          columns:
+            - column:
+                name: id
+                value: "temperature"
+            - column:
+                name: unit_name
+                value: "°C"
+      - insert:
+          tableName: unit_of_measure
+          columns:
+            - column:
+                name: id
+                value: "humidity"
+            - column:
+                name: unit_name
+                value: "%"
+      - insert:
+          tableName: sensor
+          columns:
+            - column:
+                name: name
+                value: "Sensor1"
+            - column:
+                name: model
+                value: "model-1"
+            - column:
+                name: type_id
+                value: "pressure"
+            - column:
+                name: unit_of_measure_id
+                value: "bar"
+            - column:
+                name: range_from
+                value: "5"
+            - column:
+                name: range_to
+                value: "50"
+            - column:
+                name: location
+                value: "room1"
+            - column:
+                name: description
+                value: "sensor at room 1"
+      - insert:
+          tableName: sensor
+          columns:
+            - column:
+                name: name
+                value: "Sensor2"
+            - column:
+                name: model
+                value: "model-2"
+            - column:
+                name: type_id
+                value: "voltage"
+            - column:
+                name: unit_of_measure_id
+                value: "voltage"
+            - column:
+                name: range_from
+                value: "150"
+            - column:
+                name: range_to
+                value: "250"
+            - column:
+                name: location
+                value: "room1"
+            - column:
+                name: description
+                value: "Another sensor at room 1"

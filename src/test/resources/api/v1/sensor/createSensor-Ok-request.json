@@ -1,0 +1,12 @@
+{
+    "name": "SensorTest",
+    "model": "test",
+    "range": {
+        "from": 22,
+        "to": 45
+    },
+    "type": "pressure",
+    "unit": "bar",
+    "location": "kitchen",
+    "description": "Sensor description"
+}

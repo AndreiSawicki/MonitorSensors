@@ -1,0 +1,12 @@
+{
+    "name": "Sensor1",
+    "model": "model-1",
+    "range": {
+        "from": 1,
+        "to": 22
+    },
+    "type": "pressure",
+    "unit": "bar",
+    "location": "room1",
+    "description": "Sensor at room 1"
+}

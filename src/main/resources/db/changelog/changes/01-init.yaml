@@ -1,0 +1,148 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1739652453125-1
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: user_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1739652453125-2
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_app_user
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: username
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role
+                  type: VARCHAR(255)
+            tableName: app_user
+  - changeSet:
+      id: 1739652453125-3
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_sensor
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: model
+                  type: VARCHAR(15)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type_id
+                  type: VARCHAR(255)
+              - column:
+                  name: range_from
+                  type: INT
+              - column:
+                  name: range_to
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unit_of_measure_id
+                  type: VARCHAR(255)
+              - column:
+                  name: location
+                  type: VARCHAR(40)
+              - column:
+                  name: description
+                  type: VARCHAR(200)
+            tableName: sensor
+  - changeSet:
+      id: 1739652453125-4
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_sensortype
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: type_name
+                  type: VARCHAR(255)
+            tableName: sensor_type
+  - changeSet:
+      id: 1739652453125-5
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_unitofmeasure
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: unit_name
+                  type: VARCHAR(255)
+            tableName: unit_of_measure
+  - changeSet:
+      id: 1739652453125-6
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: username
+            constraintName: uc_app_user_username
+            tableName: app_user
+  - changeSet:
+      id: 1739652453125-7
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: type_id
+            baseTableName: sensor
+            constraintName: FK_SENSOR_ON_TYPE
+            referencedColumnNames: id
+            referencedTableName: sensor_type
+  - changeSet:
+      id: 1739652453125-8
+      author: sawicki (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: unit_of_measure_id
+            baseTableName: sensor
+            constraintName: FK_SENSOR_ON_UNIT_OF_MEASURE
+            referencedColumnNames: id
+            referencedTableName: unit_of_measure
+
